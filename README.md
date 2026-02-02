@@ -1,19 +1,19 @@
-# SENTINEL
+# SENTINEL1
 
-![Sentinel Banner](assets/banner.png)
+![Sentinel1 Banner](assets/banner.png)
 
-**Version 1.0.0** | **License: MIT** | **Node.js >= 18** | **TypeScript** | [Join Community](https://x.com/sentinel)
+**Version 1.0.0** | **License: MIT** | **Node.js >= 18** | **TypeScript** | [Join Community](https://x.com/AgentSentinel1)
 
-## AI-Powered Autonomous Security & Threat Detection System
+## AI-Powered Autonomous Agent Monitoring & Alignment System
 
-SENTINEL is a next-generation security intelligence platform that combines advanced AI/ML, real-time threat detection, and autonomous incident response. Built with TypeScript for high performance and reliability, it provides enterprise-grade threat detection and orchestrated response capabilities.
+Sentinel1 is an AI agent monitoring system focused on alignment research. Combines advanced AI/ML, real-time agent behavior detection, and autonomous alignment verification. Built with TypeScript for high performance and reliability, it provides enterprise-grade agent monitoring and orchestrated response capabilities.
 
 ---
 
 ## 🎯 Table of Contents
 
 - [Features](#features)
-- [Why SENTINEL?](#why-sentinel)
+- [Why Sentinel1?](#why-sentinel1)
 - [Architecture](#architecture)
 - [Installation](#installation)
 - [Quick Start](#quick-start)
