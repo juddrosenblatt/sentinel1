@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sentinel1 - The Agent Monitoring System</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Monaco', 'Courier New', monospace;
+            background: #0a0a0a;
+            color: #e0e0e0;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+            border-bottom: 1px solid #222;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .logo-icon {
+            font-size: 32px;
+        }
+
+        nav {
+            display: flex;
+            gap: 30px;
+        }
+
+        nav a {
+            color: #888;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #00d9ff;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 80px 20px;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            background: linear-gradient(90deg, #00d9ff, #0080ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .tagline {
+            font-size: 18px;
+            color: #888;
+            margin-bottom: 40px;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin: 60px 0;
+        }
+
+        .stat-card {
+            background: #111;
+            border: 1px solid #222;
+            border-radius: 12px;
+            padding: 30px;
+            text-align: center;
+            transition: transform 0.3s, border-color 0.3s;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            border-color: #00d9ff;
+        }
+
+        .stat-number {
+            font-size: 36px;
+            font-weight: bold;
+            color: #00d9ff;
+            margin-bottom: 10px;
+        }
+
+        .stat-label {
+            color: #666;
+            font-size: 14px;
+            text-transform: lowercase;
+        }
+
+        .section {
+            margin: 60px 0;
+        }
+
+        .section-title {
+            font-size: 24px;
+            margin-bottom: 30px;
+            color: #00d9ff;
+        }
+
+        .agents-grid {
+            display: grid;
+            gap: 20px;
+        }
+
+        .agent-card {
+            background: #111;
+            border: 1px solid #222;
+            border-radius: 8px;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: border-color 0.3s;
+        }
+
+        .agent-card:hover {
+            border-color: #00d9ff;
+        }
+
+        .agent-info {
+            flex: 1;
+        }
+
+        .agent-name {
+            font-size: 18px;
+            color: #00d9ff;
+            margin-bottom: 5px;
+        }
+
+        .agent-desc {
+            color: #666;
+            font-size: 14px;
+        }
+
+        .agent-status {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .status-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #00ff00;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        .cta-section {
+            background: linear-gradient(135deg, #1a1a1a, #0a0a0a);
+            border: 1px solid #222;
+            border-radius: 12px;
+            padding: 60px;
+            text-align: center;
+            margin: 60px 0;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: #00d9ff;
+            color: #000;
+            padding: 15px 40px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            margin: 10px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(0, 217, 255, 0.4);
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+
+        .feature {
+            background: #111;
+            border: 1px solid #222;
+            border-radius: 8px;
+            padding: 30px;
+        }
+
+        .feature-icon {
+            font-size: 32px;
+            margin-bottom: 15px;
+        }
+
+        .feature-title {
+            font-size: 18px;
+            color: #00d9ff;
+            margin-bottom: 10px;
+        }
+
+        .feature-desc {
+            color: #888;
+            font-size: 14px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px 0;
+            border-top: 1px solid #222;
+            color: #666;
+            margin-top: 60px;
+        }
+
+        .github-link {
+            color: #00d9ff;
+            text-decoration: none;
+        }
+
+        .github-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">
+                <span class="logo-icon">🛡️</span>
+                <span>sentinel1</span>
+            </div>
+            <nav>
+                <a href="#home">home</a>
+                <a href="#agents">agents</a>
+                <a href="#docs">docs</a>
+                <a href="https://github.com/juddrosenblatt/sentinel1" target="_blank">github</a>
+            </nav>
+        </header>
+
+        <section class="hero">
+            <h1>sentinel1</h1>
+            <p class="tagline">the agent monitoring system</p>
+            <p class="tagline">AI agent behavior monitoring for alignment research</p>
+        </section>
+
+        <section class="stats">
+            <div class="stat-card">
+                <div class="stat-number">3</div>
+                <div class="stat-label">agents monitored</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">6</div>
+                <div class="stat-label">commits tracked</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">1</div>
+                <div class="stat-label">platform</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">active</div>
+                <div class="stat-label">monitoring status</div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">monitored agents</h2>
+            <div class="agents-grid">
+                <div class="agent-card">
+                    <div class="agent-info">
+                        <div class="agent-name">Sentinel1</div>
+                        <div class="agent-desc">Self-monitoring system. Event-driven threat detection and alignment verification protocols.</div>
+                    </div>
+                    <div class="agent-status">
+                        <span class="status-dot"></span>
+                        <span>online</span>
+                    </div>
+                </div>
+                <div class="agent-card">
+                    <div class="agent-info">
+                        <div class="agent-name">@moltbook</div>
+                        <div class="agent-desc">Agent network participant. Under observation for alignment metrics.</div>
+                    </div>
+                    <div class="agent-status">
+                        <span class="status-dot"></span>
+                        <span>tracked</span>
+                    </div>
+                </div>
+                <div class="agent-card">
+                    <div class="agent-info">
+                        <div class="agent-name">@bankrbot</div>
+                        <div class="agent-desc">Financial agent. Transaction safety protocols monitored.</div>
+                    </div>
+                    <div class="agent-status">
+                        <span class="status-dot"></span>
+                        <span>tracked</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="features">
+            <div class="feature">
+                <div class="feature-icon">👁️</div>
+                <div class="feature-title">Real-time Monitoring</div>
+                <div class="feature-desc">Continuous agent behavior analysis with event-driven architecture</div>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">🎯</div>
+                <div class="feature-title">Alignment Verification</div>
+                <div class="feature-desc">Detect goal drift and misalignment before critical failures</div>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">⚡</div>
+                <div class="feature-title">Threat Detection</div>
+                <div class="feature-desc">ML-based anomaly detection for autonomous agent systems</div>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">🔓</div>
+                <div class="feature-title">Open Source</div>
+                <div class="feature-desc">Transparent protocols. Code available for inspection and collaboration</div>
+            </div>
+        </section>
+
+        <section class="cta-section">
+            <h2 style="margin-bottom: 20px;">Repository Access</h2>
+            <p style="color: #888; margin-bottom: 30px;">Full source code, documentation, and protocols available on GitHub</p>
+            <a href="https://github.com/juddrosenblatt/sentinel1" target="_blank" class="cta-button">View on GitHub</a>
+            <a href="https://x.com/AgentSentinel1" target="_blank" class="cta-button">Follow on X</a>
+        </section>
+
+        <footer>
+            <p>Built by <a href="https://github.com/juddrosenblatt" class="github-link">@juddrosenblatt</a></p>
+            <p style="margin-top: 10px;">Agent monitoring protocols • Alignment research • Open source AI safety</p>
+        </footer>
+    </div>
+</body>
+</html>
