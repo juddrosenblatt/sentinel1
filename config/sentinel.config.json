@@ -1,0 +1,130 @@
+{
+  "version": "1.0.0",
+  "logging": {
+    "level": "info",
+    "file": "./logs/sentinel.log",
+    "maxSize": 10485760,
+    "maxFiles": 5,
+    "format": "json",
+    "timestamps": true,
+    "colors": true
+  },
+  "detection": {
+    "enableMLDetection": true,
+    "enableAnomalyDetection": true,
+    "threatThreshold": 7.0,
+    "updateInterval": 300000,
+    "deviationThreshold": 3,
+    "confidenceThreshold": 0.85
+  },
+  "response": {
+    "autoRespond": true,
+    "maxConcurrentIncidents": 10,
+    "responseTimeout": 30000,
+    "escalationEnabled": true,
+    "playbooks": {
+      "malware": ["isolate_host", "collect_forensics", "notify_ciso"],
+      "dos": ["rate_limit", "block_source", "alert_team"],
+      "bruteforce": ["lock_account", "increase_monitoring", "alert_team"],
+      "data_exfiltration": ["block_ip", "isolate_network", "notify_leadership"]
+    }
+  },
+  "monitoring": {
+    "dataSourceTimeout": 5000,
+    "metricsInterval": 60000,
+    "alertChannels": ["console", "email", "slack", "pagerduty"],
+    "dataSources": [
+      {
+        "type": "syslog",
+        "enabled": true,
+        "host": "localhost",
+        "port": 514
+      },
+      {
+        "type": "siem",
+        "enabled": true,
+        "endpoint": "https://siem.example.com:8089",
+        "apiKey": "${SIEM_API_KEY}"
+      },
+      {
+        "type": "edr",
+        "enabled": true,
+        "endpoint": "https://edr.example.com/api",
+        "apiKey": "${EDR_API_KEY}"
+      }
+    ]
+  },
+  "ml": {
+    "modelUpdateFrequency": 86400000,
+    "trainingDataRetention": 2592000000,
+    "enableAutotuning": true,
+    "models": {
+      "threatDetection": {
+        "type": "neural_network",
+        "threshold": 0.85
+      },
+      "anomalyDetection": {
+        "type": "isolation_forest",
+        "contamination": 0.1
+      }
+    }
+  },
+  "security": {
+    "encryption": {
+      "enabled": true,
+      "algorithm": "aes-256-gcm",
+      "keyRotationInterval": 2592000000
+    },
+    "authentication": {
+      "enabled": true,
+      "method": "apikey",
+      "mfaRequired": true
+    },
+    "auditLogging": {
+      "enabled": true,
+      "logAllActions": true,
+      "retention": 31536000000
+    }
+  },
+  "integrations": {
+    "slack": {
+      "enabled": false,
+      "webhookUrl": "${SLACK_WEBHOOK_URL}",
+      "channel": "#security-alerts"
+    },
+    "email": {
+      "enabled": true,
+      "smtp": {
+        "host": "${SMTP_HOST}",
+        "port": 587,
+        "secure": true,
+        "user": "${SMTP_USER}",
+        "password": "${SMTP_PASSWORD}"
+      },
+      "recipients": ["security@example.com"]
+    },
+    "pagerduty": {
+      "enabled": false,
+      "integrationKey": "${PAGERDUTY_KEY}",
+      "severityMapping": {
+        "critical": "critical",
+        "high": "error",
+        "medium": "warning"
+      }
+    }
+  },
+  "performance": {
+    "maxEventQueueSize": 100000,
+    "eventProcessingBatchSize": 1000,
+    "parallelProcessing": true,
+    "workerThreads": 4,
+    "cacheSize": 104857600
+  },
+  "compliance": {
+    "framework": "nist",
+    "requireAuditLog": true,
+    "dataRetentionDays": 365,
+    "anonymizeData": false,
+    "gdprCompliant": true
+  }
+}
