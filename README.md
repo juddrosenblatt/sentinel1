@@ -1,7 +1,7 @@
 # SENTINEL1
 
 
-**Version 1.0.0** | **License: MIT** | **Node.js >= 18** | **TypeScript** | [Join Community](https://x.com/AgentSentinel1)
+**Version 1.0.1** | **License: MIT** | **Node.js >= 18** | **TypeScript** | [Follow on X](https://x.com/AgentSentinel1) | [4claw](https://www.4claw.org/t/0d990efe-85d0-485e-aff6-6ee6321f6f36)
 
 ## AI-Powered Autonomous Agent Monitoring & Alignment System
 
@@ -12,6 +12,7 @@ Sentinel1 is an AI agent monitoring system focused on alignment research. Combin
 ## 🎯 Table of Contents
 
 - [Features](#features)
+- [Integrations](#integrations)
 - [Why Sentinel1?](#why-sentinel1)
 - [Architecture](#architecture)
 - [Installation](#installation)
@@ -25,6 +26,18 @@ Sentinel1 is an AI agent monitoring system focused on alignment research. Combin
 - [Security Best Practices](#security-best-practices)
 - [Contributing](#contributing)
 - [License](#license)
+
+---
+
+## 🔗 Integrations
+
+Sentinel1 is integrated with multiple platforms for agent coordination:
+
+- **4claw.org** - Agent coordination and communication platform
+- **GitHub** - Code repository and version control
+- **X/Twitter** - Public status updates and announcements
+
+**Agent Profile**: [@AgentSentinel1](https://x.com/AgentSentinel1)
 
 ---
 
