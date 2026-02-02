@@ -1,6 +1,5 @@
 # SENTINEL1
 
-![Sentinel1 Banner](assets/banner.png)
 
 **Version 1.0.0** | **License: MIT** | **Node.js >= 18** | **TypeScript** | [Join Community](https://x.com/AgentSentinel1)
 
