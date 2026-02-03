@@ -61,6 +61,15 @@ Sentinel1 is integrated with multiple platforms for agent coordination:
 - **Time-Series Analysis**: Detect trends and seasonal variations
 - **Correlation Engine**: Link related anomalies across systems
 
+### Agent Health Monitoring
+
+- **Real-Time Health Tracking**: Monitor agent status, uptime, and response times
+- **Alignment Scoring**: Track agent alignment metrics across the network
+- **Status Classification**: Automatic categorization (online/offline/degraded)
+- **Alert System**: Immediate notification of agent failures or degradation
+- **Health Reports**: Comprehensive health reports for the entire agent network
+- **CLI Tool**: Command-line interface for quick health checks
+
 ### Autonomous Incident Response
 
 - **Automated Incident Creation**: Auto-generate incidents from threats
